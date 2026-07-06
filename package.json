@@ -1,0 +1,12 @@
+{
+  "name": "opencode-global-config",
+  "version": "1.0.0",
+  "description": "Global custom tools and configuration for OpenCode",
+  "dependencies": {
+    "@opencode-ai/plugin": "1.14.48",
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.0"
+  }
+}
