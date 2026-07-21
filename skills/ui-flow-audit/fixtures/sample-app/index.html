@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sample App — UI Flow Audit Fixture</title>
+</head>
+<body>
+  <main id="app">
+    <h1>Sample App</h1>
+
+    <!-- Timer: Start exists, no Stop. (R1) -->
+    <section id="timer">
+      <button id="btn-start-timer">Start Timer</button>
+      <span id="timer-status">(stopped)</span>
+    </section>
+
+    <!-- Dropdown: opens but never closes. (R1) -->
+    <section id="dropdown-section">
+      <button id="btn-open-dropdown">Open Dropdown</button>
+      <ul id="dropdown" hidden>
+        <li>Apple</li><li>Banana</li><li>Cherry</li>
+      </ul>
+    </section>
+
+    <!-- Modal opens, no close button. (R10) -->
+    <section id="modal-section">
+      <button id="btn-show-modal">Show Welcome Modal</button>
+      <div id="modal" role="dialog" aria-modal="true" hidden>
+        <h2>Welcome</h2>
+        <p>This modal has no close button or escape handler.</p>
+      </div>
+    </section>
+
+    <!-- Toggle: only set to true. (R2) -->
+    <section id="menu">
+      <button id="btn-expand-menu">Expand Menu</button>
+    </section>
+
+    <!-- Pass example: delete with confirm. (R5 — passes) -->
+    <section id="account">
+      <button id="btn-delete-account">Delete Account</button>
+    </section>
+  </main>
+  <script src="App.js"></script>
+</body>
+</html>

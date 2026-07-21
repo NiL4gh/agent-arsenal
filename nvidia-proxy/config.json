@@ -1,0 +1,8 @@
+{
+  "PORT": 1340,
+  "UPSTREAM_HOST": "integrate.api.nvidia.com",
+  "UPSTREAM_PORT": 443,
+  "RPM": 40,
+  "MAX_CONCURRENT": 12,
+  "UPSTREAM_TIMEOUT_MS": 300000
+}
