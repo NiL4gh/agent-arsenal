@@ -1,0 +1,6 @@
+{
+  "plugin": [
+    "opencode-subagent-statusline",
+    "@tarquinen/opencode-dcp@latest"
+  ]
+}
