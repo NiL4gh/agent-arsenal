@@ -72,5 +72,5 @@ To initialize a project with scoped intelligence:
 
 * **Global Meta-Workflow Skills ([`skills/`](../skills/)):** Universal engineering procedures (TDD, Systematic Debugging, Plan-Execute-Verify, UI Flow Audit, UI/UX Pro Max, Agentic Pruning, Code Reviewer).
 * **Domain Suites ([`suites/`](../suites/)):**
-  * **`suites/creative-stock/`**: Blender motion graphics, video director, stock asset factory, and export standards.
+  * **`suites/creative-stock/`**: Blender motion graphics, video director, stock asset factory, DesignCraft branding engine, Diffusion Studio editor/watch, and export standards (14 skills).
   * **`suites/cloudflare-supabase/`**: Cloudflare Agents SDK, Workers best practices, Durable Objects, and Supabase Postgres suites.

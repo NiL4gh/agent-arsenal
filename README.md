@@ -14,7 +14,7 @@ agent-arsenal/
 │   ├── README.md           # Breakdown of active MCPs, loading precedence, and architecture
 │   └── rules-and-guardrails.md # The 16-rule universal behavioral standard
 ├── suites/                 # Specialized domain skill packs (project-scoped)
-│   ├── creative-stock/     # Blender, video director, stock asset factory, export standards (11 skills)
+│   ├── creative-stock/     # Blender, video director, stock asset factory, designcraft, Diffusion Studio (14 skills)
 │   └── cloudflare-supabase/# Cloudflare Agents SDK, Workers, Durable Objects, Supabase (13 skills)
 ├── skills/                 # 50+ portable, flat agent skills (SDD, TDD, Meta-Workflows, Debugging)
 ├── evaluations/            # Architectural comparisons & tool trade-off reviews
@@ -46,7 +46,7 @@ See [`active-stack/README.md`](./active-stack/README.md) for full configuration 
 
 Self-contained skill collections designed to be selectively mounted into any project's `.agents/skills/`:
 
-* **`suites/creative-stock/`**: `blender-motion-graphics`, `video-director`, `stock-asset-factory`, `brand-presentation-suite`, `designcraft-social`, `fiverr-order-copilot`, `logo-deconstruct-assembly`, `stock-image-standards`, `stock-vector-standards`, `stock-video-motion-standards`, `stock-video-quality-benchmark`.
+* **`suites/creative-stock/`**: `blender-motion-graphics`, `video-director`, `stock-asset-factory`, `brand-presentation-suite`, `designcraft`, `designcraft-social`, `editor`, `fiverr-order-copilot`, `logo-deconstruct-assembly`, `stock-image-standards`, `stock-vector-standards`, `stock-video-motion-standards`, `stock-video-quality-benchmark`, `watch`.
 * **`suites/cloudflare-supabase/`**: `agents-sdk`, `cloudflare`, `cloudflare-email-service`, `cloudflare-one`, `cloudflare-one-migrations`, `durable-objects`, `sandbox-sdk`, `supabase`, `supabase-postgres-best-practices`, `turnstile-spin`, `web-perf`, `workers-best-practices`, `wrangler`.
 
 ---
