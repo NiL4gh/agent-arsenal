@@ -9,7 +9,7 @@
         "batch_tool": true
     },
     "instructions": [
-        "C:\\Users\\niloy\\.remember\\MEMORY.md"
+        "~/.remember/MEMORY.md"
     ],
     "agent": {
         "build": {
@@ -132,7 +132,7 @@
         },
         "engram": {
             "command": [
-                "C:\\Users\\niloy\\AppData\\Local\\engram\\bin\\engram.exe",
+                "engram.exe",
                 "mcp",
                 "--tools=agent"
             ],

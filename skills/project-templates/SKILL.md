@@ -1,11 +1,11 @@
 ---
 name: project-templates
-description: "Manage and bootstrap project-specific instructions and guidelines for Web, Python, Mobile, Enterprise Backend, DevOps, and OSS Libraries."
+description: "Manage and bootstrap project-specific instructions, guidelines, and .agents scaffolds for Web, Python, Mobile, Enterprise Backend, DevOps, and OSS Libraries."
 ---
 
 # Project Templates Skill
 
-This skill provides a set of structured developer instructions and guidelines for different kinds of projects. It includes a utility script to copy these templates as a baseline instruction file (`CLAUDE.md` or `GEMINI.md`) into your target workspace.
+This skill provides a set of structured developer instructions and guidelines for different kinds of projects. It includes a utility script to copy these templates as a baseline instruction file (`GEMINI.md` or `AGENTS.md`) and bootstrap `.agents/` scaffolds into your target workspace.
 
 ## Available Templates
 - **web-app**: Next.js 14, Zustand, Prisma, React Query frontend/backend stack.
@@ -16,18 +16,19 @@ This skill provides a set of structured developer instructions and guidelines fo
 - **oss-library**: Open-source library packaging guidelines and release flow.
 
 ## How to Apply a Template
-You can run the PowerShell script to copy any of the templates to a target folder:
+
+Run the PowerShell script from your repository or toolkit:
 
 ```powershell
-& "C:\Users\niloy\Documents\opencode-setup\skills\project-templates\scripts\apply-template.ps1" -Template <template-name> -Target <target-path> -FileName <CLAUDE.md|GEMINI.md>
+& ".\skills\project-templates\scripts\apply-template.ps1" -Template <template-name> -Target <target-path> -FileName <GEMINI.md|AGENTS.md> [-InitAgents]
 ```
 
 ### Examples:
-- Apply the Web App template to the current directory:
+- Apply the Web App template to the current directory and initialize `.agents/`:
   ```powershell
-  & "C:\Users\niloy\Documents\opencode-setup\skills\project-templates\scripts\apply-template.ps1" -Template web-app
+  & ".\skills\project-templates\scripts\apply-template.ps1" -Template web-app -InitAgents
   ```
 - Apply the DevOps Infrastructure template to a specific subfolder as `GEMINI.md`:
   ```powershell
-  & "C:\Users\niloy\Documents\opencode-setup\skills\project-templates\scripts\apply-template.ps1" -Template devops-infra -Target .\infra-repo -FileName GEMINI.md
+  & ".\skills\project-templates\scripts\apply-template.ps1" -Template devops-infra -Target .\infra-repo -FileName GEMINI.md
   ```

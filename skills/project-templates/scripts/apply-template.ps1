@@ -5,12 +5,19 @@ param (
 
     [string]$Target = ".",
 
-    [ValidateSet("CLAUDE.md", "GEMINI.md")]
-    [string]$FileName = "CLAUDE.md"
+    [ValidateSet("GEMINI.md", "CLAUDE.md", "AGENTS.md")]
+    [string]$FileName = "GEMINI.md",
+
+    [switch]$InitAgents
 )
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+
+# Check templates or resources folder
 $templateFile = Join-Path $scriptDir "..\templates\$Template.md"
+if (-not (Test-Path $templateFile)) {
+    $templateFile = Join-Path $scriptDir "..\resources\$Template.md"
+}
 
 if (-not (Test-Path $templateFile)) {
     Write-Error "Template file not found at $templateFile"
@@ -27,3 +34,14 @@ if (-not (Test-Path $targetDir)) {
 
 Copy-Item -Path $templateFile -Destination $targetPath -Force
 Write-Host "Success: Copied '$Template' template to $targetPath" -ForegroundColor Green
+
+if ($InitAgents) {
+    $agentsDir = Join-Path $Target ".agents"
+    $rulesDir = Join-Path $agentsDir "rules"
+    $skillsDir = Join-Path $agentsDir "skills"
+
+    New-Item -ItemType Directory -Path $rulesDir -Force | Out-Null
+    New-Item -ItemType Directory -Path $skillsDir -Force | Out-Null
+
+    Write-Host "Success: Initialized .agents/ scaffold in $Target" -ForegroundColor Green
+}

@@ -80,9 +80,9 @@
 
 ## 14 — INSTANT REWIND (CHECKPOINT SYSTEM)
 - Before any risky operation (multi-file edit, destructive shell command, refactor), create a git checkpoint by running:
-  `C:\Users\niloy\.opencode\tools\checkpoint.ps1 -Tag <short-name>`
+  `~/.opencode\tools\checkpoint.ps1 -Tag <short-name>`
 - To restore to last checkpoint (Claude Code Esc×2 equivalent):
-  `C:\Users\niloy\.opencode\tools\rewind.ps1`
+  `~/.opencode\tools\rewind.ps1`
 - Checkpoints are lightweight git tags with prefix `oc-checkpoint-*`.
 - Always checkpoint before: 3+ file edits, bash with write ops, permission changes, dependency upgrades.
 

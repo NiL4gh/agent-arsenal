@@ -1,45 +1,76 @@
 # Active Stack: Antigravity Agent Configuration
 
-A comprehensive reference to the tools, plugins, skills, and model setups actively powering Google Antigravity.
+A comprehensive reference to the tools, plugins, skills, and model setups actively powering Google Antigravity (AGY 2.0).
 
 ---
 
-## 1. Core Engineering Framework
+## 1. Two-Tier Architecture Overview
 
-* **Orchestrator:** Google Antigravity CLI / IDE (`agy`).
-* **Workflow Engine:** `superpowers` plugin (Brainstorming, Writing Plans, TDD, Systematic Debugging, Worktrees, Verification-before-completion, Code Review).
-* **Execution Style:** Caveman mode (anti-filler, dense, code/evidence focused) + Architect/Editor split (gated 3+ file modifications).
+Antigravity operates on a strict **Two-Tier Separation** between universal machine discipline and repository-specific context:
+
+```
+┌────────────────────────────────────────────────────────────────────────┐
+│                        TIER 1: GLOBAL ENVIRONMENT                      │
+│                           (~/.gemini/)                                 │
+│  - Universal behavioral guardrails (GEMINI.md: 16 rules + Engram)      │
+│  - Global engineering plugins (superpowers, devtools, web guidance)    │
+│  - System-wide MCP integrations (GitHub, Sentry, Figma, Blender, etc.) │
+│  - Core meta-workflow skills (pruning, architect, task-manager, etc.)  │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │ overrides / supplements
+┌───────────────────────────────────▼────────────────────────────────────┐
+│                       TIER 2: PROJECT WORKSPACE                        │
+│                   (<project_root> / .agents/)                          │
+│  - Project ground truth & doc index (GEMINI.md / AGENTS.md)            │
+│  - Project-scoped domain rules (.agents/rules/*.md: always_on)         │
+│  - Dedicated domain skills (.agents/skills/<name>/SKILL.md)            │
+└────────────────────────────────────────────────────────────────────────┘
+```
+
+### Loading Priority (Highest to Lowest):
+1. **Workspace Project (`.agents/`, `<project>/GEMINI.md`)**: Walks up from current working directory to git root.
+2. **Global Discovery (`~/.gemini/config/skills/`, `~/.gemini/config/plugins/`)**: Machine-level skills and plugins.
+3. **Global Behavioral Rules (`~/.gemini/GEMINI.md`)**: Foundation behavioral guardrails.
 
 ---
 
-## 2. MCP Server Integrations
+## 2. Global Machine Setup (`active-stack/system/`)
 
-| Server | Purpose | Tools |
-|---|---|---|
-| **Firecrawl** | Clean web scraping, deep crawling, markdown extraction. | `firecrawl_scrape`, `firecrawl_crawl`, `firecrawl_search` |
-| **GitHub** | Repository management, PR reviews, issues, code search. | `create_pull_request`, `search_code`, `list_commits` |
-| **Sentry** | Error diagnostics and event inspection. | `search_events`, `search_issues`, `analyze_issue_with_seer` |
-| **Figma** | Design file extraction and inspection for frontend work. | `get_figma_data`, `download_figma_images` |
-| **Cloudflare Docs** | Up-to-date documentation for Workers, Pages, and Storage. | `search_cloudflare_documentation`, `migrate_pages_to_workers_guide` |
-| **Whop Docs** | SDK and API documentation for Whop integrations. | `search_whop_docs`, `query_docs_filesystem_whop_docs` |
-| **Blender** | Headless 3D viewport control, scripting, and rendering. | `execute_blender_code`, `render_viewport_to_path` |
+* **Rules:** [`active-stack/system/GEMINI.md`](./system/GEMINI.md) — 16 global rules (Verify before stating, Architect/Editor split, Caveman output, anti-sycophancy, Windows pwsh, Engram protocol).
+* **Plugins:** [`active-stack/system/config.example.json`](./system/config.example.json) — `superpowers`, `chrome-devtools-plugin`, `modern-web-guidance-plugin`.
+* **MCP Servers:** [`active-stack/system/mcp-config.example.json`](./system/mcp-config.example.json) — Configured with environment variable placeholders.
+
+### Active MCP Integrations
+
+| Server | Type | Purpose | Primary Tools |
+|---|---|---|---|
+| **Firecrawl** | Managed / Local | Clean web scraping, deep crawling, markdown extraction. | `firecrawl_scrape`, `firecrawl_crawl`, `firecrawl_search` |
+| **GitHub** | Tool Integration | Repository management, PR reviews, issues, code search. | `create_pull_request`, `search_code`, `list_commits` |
+| **Sentry** | Diagnostics | Error diagnostics, stack trace, and event inspection. | `search_events`, `search_issues`, `analyze_issue_with_seer` |
+| **Figma** | Design Inspection | Design file extraction and inspection for frontend work. | `get_figma_data`, `download_figma_images` |
+| **Photoshop** | Headless Automation | Layer manipulation, text styles, rendering, and compositing. | `photoshop_create_layer`, `photoshop_export_as`, `photoshop_execute_script` |
+| **Blender** | 3D Engine | Headless 3D viewport control, Cycles/EEVEE rendering, procedural scenes. | `execute_blender_code`, `render_viewport_to_path` |
+| **Context7** | Docs Resolver | Live package and library documentation resolution. | `resolve-library-id`, `query-docs` |
+| **Cloudflare Docs** | Docs Server | Documentation for Workers, Pages, and Storage. | `search_cloudflare_documentation`, `migrate_pages_to_workers_guide` |
+| **Whop Docs** | Docs Server | SDK and API documentation for Whop integrations. | `search_whop_docs`, `query_docs_filesystem_whop_docs` |
+| **Supabase** | Remote Database | Schema inspection, migration, and direct MCP DB querying. | Supabase MCP endpoint |
+| **Engram** | Persistent Memory | Cross-session memory, architectural decisions, and bug history. | `mem_save`, `mem_context`, `mem_search`, `mem_session_summary` |
 
 ---
 
-## 3. Specialized Domain Skills
+## 3. Project Workspace Blueprint (`active-stack/project/`)
 
-* **Cloud & Fullstack:**
-  * Cloudflare suite: `cloudflare`, `agents-sdk`, `durable-objects`, `cloudflare-email-service`, `cloudflare-one`, `sandbox-sdk`, `wrangler`, `turnstile-spin`.
-  * Supabase suite: `supabase`, `supabase-postgres-best-practices`.
-* **3D & Motion Production:**
-  * `blender-motion-graphics`: Headless Cycles OptiX / EEVEE procedural shaders, studio lighting, loop math.
-  * `video-director`: Remotion assembly, multi-modal frame validation, NVENC render workflows.
-* **Commercial Stock Production:**
-  * `stock-asset-factory`: Master orchestrator for vectors, rasters, and video footage.
-  * `stock-vector-standards`: SVG/EPS10 compliance, clipping masks, metadata hygiene.
-  * `stock-image-standards`: 4K/8K Pillow/MozJPEG, ICC profiles, 100% crop checks.
-  * `stock-video-motion-standards`: Lossless Adobe XMP UUID tagging, 12s sweet spot, H.264 high profile.
-* **UI/UX Engineering:**
-  * `ui-ux-pro-max`: Premium design systems, glassmorphism, micro-animations.
-  * `ui-flow-audit`: User flow state checks, error boundary analysis, dead-end flow auditing.
-  * `web-perf`: Core Web Vitals profiling via Chrome DevTools.
+To initialize a project with scoped intelligence:
+
+1. Copy [`active-stack/project/GEMINI.project.template.md`](./project/GEMINI.project.template.md) to `<project_root>/GEMINI.md`.
+2. Place invariant domain rules in `.agents/rules/*.md`.
+3. Drop relevant domain skills from [`suites/`](../suites/) into `.agents/skills/<skill-name>/`.
+
+---
+
+## 4. Skills Library vs. Domain Suites
+
+* **Global Meta-Workflow Skills ([`skills/`](../skills/)):** Universal engineering procedures (TDD, Systematic Debugging, Plan-Execute-Verify, UI Flow Audit, UI/UX Pro Max, Agentic Pruning, Code Reviewer).
+* **Domain Suites ([`suites/`](../suites/)):**
+  * **`suites/creative-stock/`**: Blender motion graphics, video director, stock asset factory, and export standards.
+  * **`suites/cloudflare-supabase/`**: Cloudflare Agents SDK, Workers best practices, Durable Objects, and Supabase Postgres suites.

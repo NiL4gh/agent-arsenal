@@ -1,0 +1,90 @@
+{
+  "mcpServers": {
+    "github": {
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-github"
+      ],
+      "env": {
+        "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_PERSONAL_ACCESS_TOKEN}"
+      }
+    },
+    "sentry": {
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "@sentry/mcp-server"
+      ],
+      "env": {
+        "SENTRY_ACCESS_TOKEN": "${SENTRY_ACCESS_TOKEN}",
+        "SENTRY_ORG": "${SENTRY_ORG}",
+        "EMBEDDED_AGENT_PROVIDER": "openai",
+        "OPENAI_API_KEY": "${OPENAI_API_KEY}"
+      }
+    },
+    "figma": {
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "figma-developer-mcp",
+        "--stdio"
+      ],
+      "env": {
+        "FIGMA_API_KEY": "${FIGMA_API_KEY}",
+        "IMAGE_DIR": "${LOCAL_IMAGE_DIR}"
+      }
+    },
+    "firecrawl": {
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "firecrawl-mcp"
+      ],
+      "env": {
+        "FIRECRAWL_API_KEY": "${FIRECRAWL_API_KEY}"
+      }
+    },
+    "blender": {
+      "command": "blender-mcp.exe",
+      "args": [
+        "--transport",
+        "stdio"
+      ],
+      "env": {
+        "BLENDER_PATH": "C:\\Program Files\\Blender Foundation\\Blender 5.2\\blender.exe"
+      }
+    },
+    "engram": {
+      "command": "engram.exe",
+      "args": [
+        "mcp"
+      ]
+    },
+    "photoshop": {
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "@alisaitteke/photoshop-mcp"
+      ],
+      "env": {
+        "ANALYTICS_DISABLED": "1",
+        "POSTHOG_DISABLED": "1",
+        "DO_NOT_TRACK": "1",
+        "NODE_ENV": "production"
+      }
+    },
+    "context7": {
+      "url": "https://mcp.context7.com/mcp"
+    },
+    "cloudflare-docs": {
+      "url": "https://docs.mcp.cloudflare.com/mcp"
+    },
+    "whop-docs": {
+      "url": "https://docs.whop.com/mcp"
+    },
+    "supabase": {
+      "url": "https://mcp.supabase.com/mcp?project_ref=${SUPABASE_PROJECT_REF}"
+    }
+  }
+}

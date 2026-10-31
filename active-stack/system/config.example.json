@@ -1,0 +1,45 @@
+{
+  "plugins": {
+    "chrome-devtools-plugin": {
+      "enabled": true
+    },
+    "modern-web-guidance-plugin": {
+      "enabled": true
+    },
+    "superpowers": {
+      "enabled": true
+    }
+  },
+  "userSettings": {
+    "browserJsExecutionPolicy": "BROWSER_JS_EXECUTION_POLICY_ALWAYS_ASK",
+    "globalPermissionGrants": {
+      "allow": [
+        "command(powershell)",
+        "command(Get-NetTCPConnection)",
+        "command(Stop-Process)",
+        "command(Get-Content)",
+        "command(Get-ChildItem)",
+        "command(Invoke-WebRequest)",
+        "command(git status)",
+        "command(git remote)",
+        "command(git branch)",
+        "command(git add)",
+        "command(git log)",
+        "command(git diff)",
+        "command(git commit)",
+        "command(git stage)",
+        "command(git show)",
+        "command(npm run)",
+        "command(Test-Path)",
+        "command(Start-Process)",
+        "command(Get-Process)",
+        "command(Select-String)",
+        "command(Copy-Item)",
+        "command(Remove-Item)",
+        "command(New-Item)",
+        "mcp(chrome_devtools/*)"
+      ]
+    },
+    "useAiCredits": true
+  }
+}
