@@ -9,9 +9,9 @@ A curated repository of autonomous agent workflows, portable skill definitions, 
 ```
 agent-arsenal/
 ├── active-stack/           # Active Google Antigravity two-tier configuration & blueprints
-│   ├── system/             # Machine-level environment (~/.gemini/): GEMINI.md, MCPs, plugins
-│   ├── project/            # Workspace template (<project>/.agents/): rules, skills, GEMINI.md
-│   ├── README.md           # Breakdown of active MCPs, loading precedence, and architecture
+│   ├── system/             # Machine-level environment (~/.gemini/): GEMINI.md, MCPs, plugins, hooks, scripts
+│   ├── project/            # Workspace template (<project>/.agents/): rules, skills, GEMINI.md, verify.ps1
+│   ├── README.md           # Breakdown of active MCPs, loading precedence, hooks, and architecture
 │   └── rules-and-guardrails.md # The 16-rule universal behavioral standard
 ├── suites/                 # Specialized domain skill packs (project-scoped)
 │   ├── creative-stock/     # Blender, video director, stock asset factory, designcraft, Diffusion Studio (14 skills)
@@ -35,10 +35,11 @@ See [`active-stack/README.md`](./active-stack/README.md) for full configuration 
 
 * **Core Engine:** Google Antigravity CLI / IDE (`agy`).
 * **Agentic Framework:** `superpowers` (Brainstorming, Writing Plans, TDD, Systematic Debugging, Worktrees, Verification-before-completion, Antagonistic Code Reviews).
-* **Active MCP Tools (11 Servers):** Firecrawl, GitHub, Sentry, Figma, Photoshop, Blender, Context7, Cloudflare Docs, Whop Docs, Supabase, Engram.
+* **Automated Hooks & Batch Execution:** Stop-hook verification gate (`verify.ps1`), post-edit syntax validation (`post-tool-hook.ps1`), and headless autonomous batch runner (`headless-runner.ps1`).
+* **Active MCP Tools (13 Servers):** Firecrawl, GitHub, Sentry, Figma, Photoshop, Blender, Context7, Cloudflare Docs, Whop Docs, Supabase, Playwright (CDP :9222), Fiverr, Engram.
 * **Separation of Concerns:**
-  * **Global Tier (`active-stack/system/`):** Universal discipline, anti-sycophancy, Windows pwsh rules, persistent memory, and machine-wide tools.
-  * **Project Tier (`active-stack/project/`):** Ground-truth indices, domain invariants (`.agents/rules/`), and dedicated domain skills (`.agents/skills/`).
+  * **Global Tier (`active-stack/system/`):** Universal discipline, anti-sycophancy, Windows pwsh rules, persistent memory, hooks, scripts, and machine-wide tools.
+  * **Project Tier (`active-stack/project/`):** Ground-truth indices, domain invariants (`.agents/rules/`), dedicated domain skills (`.agents/skills/`), and verification gate (`verify.ps1`).
 
 ---
 

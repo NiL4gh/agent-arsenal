@@ -85,6 +85,19 @@
     },
     "supabase": {
       "url": "https://mcp.supabase.com/mcp?project_ref=${SUPABASE_PROJECT_REF}"
+    },
+    "playwright": {
+      "command": "npx.cmd",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest",
+        "--cdp-endpoint=http://localhost:9222",
+        "--caps=vision,devtools",
+        "--allow-unrestricted-file-access"
+      ]
+    },
+    "fiverr": {
+      "url": "https://mcp.fiverr.com/mcp"
     }
   }
 }

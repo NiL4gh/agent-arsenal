@@ -1,0 +1,27 @@
+{
+  "post-edit-gate": {
+    "enabled": true,
+    "PostToolUse": [
+      {
+        "matcher": "edit_file|write_file",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File %USERPROFILE%\\.gemini\\config\\scripts\\post-tool-hook.ps1",
+            "timeout": 15
+          }
+        ]
+      }
+    ]
+  },
+  "verification-guard": {
+    "enabled": true,
+    "Stop": [
+      {
+        "type": "command",
+        "command": "powershell.exe -NoProfile -ExecutionPolicy Bypass -File %USERPROFILE%\\.gemini\\config\\scripts\\stop-verify-hook.ps1",
+        "timeout": 35
+      }
+    ]
+  }
+}

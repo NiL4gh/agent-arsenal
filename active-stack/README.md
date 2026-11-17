@@ -13,8 +13,10 @@ Antigravity operates on a strict **Two-Tier Separation** between universal machi
 │                        TIER 1: GLOBAL ENVIRONMENT                      │
 │                           (~/.gemini/)                                 │
 │  - Universal behavioral guardrails (GEMINI.md: 16 rules + Engram)      │
-│  - Global engineering plugins (superpowers, devtools, web guidance)    │
-│  - System-wide MCP integrations (GitHub, Sentry, Figma, Blender, etc.) │
+│  - Automated verification gates (hooks.json: post-edit & stop hooks)   │
+│  - Headless batch execution (scripts/headless-runner.ps1)              │
+│  - Global engineering plugins (superpowers, devtools, android, swarm)  │
+│  - System-wide MCP integrations (13 servers: GitHub, Playwright, etc.) │
 │  - Core meta-workflow skills (pruning, architect, task-manager, etc.)  │
 └───────────────────────────────────┬────────────────────────────────────┘
                                     │ overrides / supplements
@@ -37,10 +39,11 @@ Antigravity operates on a strict **Two-Tier Separation** between universal machi
 ## 2. Global Machine Setup (`active-stack/system/`)
 
 * **Rules:** [`active-stack/system/GEMINI.md`](./system/GEMINI.md) — 16 global rules (Verify before stating, Architect/Editor split, Caveman output, anti-sycophancy, Windows pwsh, Engram protocol).
-* **Plugins:** [`active-stack/system/config.example.json`](./system/config.example.json) — `superpowers`, `chrome-devtools-plugin`, `modern-web-guidance-plugin`.
-* **MCP Servers:** [`active-stack/system/mcp-config.example.json`](./system/mcp-config.example.json) — Configured with environment variable placeholders.
+* **Plugins & Sidecars:** [`active-stack/system/config.example.json`](./system/config.example.json) — `superpowers`, `chrome-devtools-plugin`, `modern-web-guidance-plugin`, `android-cli-plugin` (compose-preview, device-hub), `swarm` (swarm_board).
+* **Automated Hooks & Scripts:** [`active-stack/system/hooks.example.json`](./system/hooks.example.json) & [`active-stack/system/scripts/`](./system/scripts/) — `post-tool-hook.ps1` (instant syntax compilation), `stop-verify-hook.ps1` (project-level verification gate on stop), and `headless-runner.ps1` (autonomous batch pipelines).
+* **MCP Servers:** [`active-stack/system/mcp-config.example.json`](./system/mcp-config.example.json) — Configured with environment variable placeholders (13 servers).
 
-### Active MCP Integrations
+### Active MCP Integrations (13 Servers)
 
 | Server | Type | Purpose | Primary Tools |
 |---|---|---|---|
@@ -54,6 +57,8 @@ Antigravity operates on a strict **Two-Tier Separation** between universal machi
 | **Cloudflare Docs** | Docs Server | Documentation for Workers, Pages, and Storage. | `search_cloudflare_documentation`, `migrate_pages_to_workers_guide` |
 | **Whop Docs** | Docs Server | SDK and API documentation for Whop integrations. | `search_whop_docs`, `query_docs_filesystem_whop_docs` |
 | **Supabase** | Remote Database | Schema inspection, migration, and direct MCP DB querying. | Supabase MCP endpoint |
+| **Playwright** | Browser Automation | Full browser control via Chrome DevTools Protocol (`localhost:9222`). | `browser_navigate`, `browser_click`, `browser_snapshot` |
+| **Fiverr** | Platform Tool | Freelance platform automation and order management. | Fiverr MCP endpoint |
 | **Engram** | Persistent Memory | Cross-session memory, architectural decisions, and bug history. | `mem_save`, `mem_context`, `mem_search`, `mem_session_summary` |
 
 ---
@@ -63,8 +68,9 @@ Antigravity operates on a strict **Two-Tier Separation** between universal machi
 To initialize a project with scoped intelligence:
 
 1. Copy [`active-stack/project/GEMINI.project.template.md`](./project/GEMINI.project.template.md) to `<project_root>/GEMINI.md`.
-2. Place invariant domain rules in `.agents/rules/*.md`.
-3. Drop relevant domain skills from [`suites/`](../suites/) into `.agents/skills/<skill-name>/`.
+2. Copy [`active-stack/project/verify.ps1.template`](./project/verify.ps1.template) to `<project_root>/verify.ps1` to enforce automated Stop Hook verification.
+3. Place invariant domain rules in `.agents/rules/*.md`.
+4. Drop relevant domain skills from [`suites/`](../suites/) into `.agents/skills/<skill-name>/`.
 
 ---
 

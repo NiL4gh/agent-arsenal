@@ -1,5 +1,12 @@
 {
   "plugins": {
+    "android-cli-plugin": {
+      "installedFrom": {
+        "id": "antigravity-plugins-official/plugin/android-cli-plugin",
+        "marketplace": "antigravity-plugins-official",
+        "version": "1.0.16625370"
+      }
+    },
     "chrome-devtools-plugin": {
       "enabled": true
     },
@@ -8,6 +15,20 @@
     },
     "superpowers": {
       "enabled": true
+    },
+    "swarm": {
+      "enabled": true
+    }
+  },
+  "sidecars": {
+    "android-cli-plugin/compose-preview": {
+      "schemaVersion": 1
+    },
+    "android-cli-plugin/device-hub": {
+      "schemaVersion": 1
+    },
+    "swarm/swarm_board": {
+      "schemaVersion": 1
     }
   },
   "userSettings": {
@@ -30,14 +51,26 @@
         "command(git stage)",
         "command(git show)",
         "command(npm run)",
+        "mcp(chrome_devtools/*)",
+        "command(Get-Command)",
+        "command(&)",
         "command(Test-Path)",
         "command(Start-Process)",
         "command(Get-Process)",
+        "command(Get-CimInstance)",
+        "command(cmd.exe)",
         "command(Select-String)",
         "command(Copy-Item)",
         "command(Remove-Item)",
         "command(New-Item)",
-        "mcp(chrome_devtools/*)"
+        "command(huggingface-cli)",
+        "command(conda)",
+        "command(netstat)",
+        "command(where)",
+        "command(where.exe)",
+        "command(git clone)",
+        "read_url(github.com)",
+        "read_url(raw.githubusercontent.com)"
       ]
     },
     "useAiCredits": true

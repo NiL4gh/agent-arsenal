@@ -1,0 +1,51 @@
+<#
+.SYNOPSIS
+    Standard smoke/sanity verification gate for Antigravity Stop Hook.
+.DESCRIPTION
+    Drop this file as 'verify.ps1' in any project root.
+    When the agent attempts to stop or complete a task, the Stop Hook executes this file.
+    If this script exits with code 0, the agent is allowed to stop.
+    If this script exits with non-zero, the output is fed back to the agent to fix automatically.
+#>
+
+$ErrorActionPreference = "Stop"
+$failures = @()
+
+# 1. Python Syntax Validation (if project contains .py files)
+$pyFiles = Get-ChildItem -Path . -Filter *.py -Recurse -File -Exclude "*venv*", "*.env*", "site-packages" -ErrorAction SilentlyContinue
+if ($pyFiles) {
+    foreach ($file in $pyFiles) {
+        $compileRes = python -m py_compile "$($file.FullName)" 2>&1
+        if ($LASTEXITCODE -ne 0) {
+            $failures += "Python Syntax Error in $($file.Name): $compileRes"
+        }
+    }
+}
+
+# 2. Node / TypeScript Check (if package.json exists)
+if (Test-Path "package.json") {
+    $pkg = Get-Content "package.json" -Raw | ConvertFrom-Json
+    if ($pkg.scripts.typecheck) {
+        $typeRes = npm run typecheck 2>&1
+        if ($LASTEXITCODE -ne 0) {
+            $failures += "TypeScript compilation failed: $typeRes"
+        }
+    }
+}
+
+# 3. Custom Project Smoke Test (add mock tests or sanity checks below)
+# Example:
+# if (Test-Path "smoke_test.py") {
+#     $smokeRes = python smoke_test.py 2>&1
+#     if ($LASTEXITCODE -ne 0) {
+#         $failures += "Smoke test failed: $smokeRes"
+#     }
+# }
+
+if ($failures.Count -gt 0) {
+    Write-Error ($failures -join "`n")
+    exit 1
+}
+
+Write-Host "All verification checks passed."
+exit 0
