@@ -12,7 +12,7 @@ Antigravity operates on a strict **Two-Tier Separation** between universal machi
 ┌────────────────────────────────────────────────────────────────────────┐
 │                        TIER 1: GLOBAL ENVIRONMENT                      │
 │                           (~/.gemini/)                                 │
-│  - Universal behavioral guardrails (GEMINI.md: 16 rules + Engram)      │
+│  - Universal behavioral guardrails (GEMINI.md: 12 rules + Engram)      │
 │  - Automated verification gates (hooks.json: post-edit & stop hooks)   │
 │  - Headless batch execution (scripts/headless-runner.ps1)              │
 │  - Global engineering plugins (superpowers, devtools, android, swarm)  │
@@ -38,7 +38,7 @@ Antigravity operates on a strict **Two-Tier Separation** between universal machi
 
 ## 2. Global Machine Setup (`active-stack/system/`)
 
-* **Rules:** [`active-stack/system/GEMINI.md`](./system/GEMINI.md) — 16 global rules (Verify before stating, Architect/Editor split, Caveman output, anti-sycophancy, Windows pwsh, Engram protocol).
+* **Rules:** [`active-stack/system/GEMINI.md`](./system/GEMINI.md) — 12 global rules (Auto-Routing across Hydrogen/`flash`/headless OpenCode, Verify before stating, Production safeguards, Caveman output, anti-sycophancy, Windows pwsh, Engram protocol).
 * **Plugins & Sidecars:** [`active-stack/system/config.example.json`](./system/config.example.json) — `superpowers`, `chrome-devtools-plugin`, `modern-web-guidance-plugin`, `android-cli-plugin` (compose-preview, device-hub), `swarm` (swarm_board).
 * **Automated Hooks & Scripts:** [`active-stack/system/hooks.example.json`](./system/hooks.example.json) & [`active-stack/system/scripts/`](./system/scripts/) — `post-tool-hook.ps1` (instant syntax compilation), `stop-verify-hook.ps1` (project-level verification gate on stop), and `headless-runner.ps1` (autonomous batch pipelines).
 * **MCP Servers:** [`active-stack/system/mcp-config.example.json`](./system/mcp-config.example.json) — Configured with environment variable placeholders (13 servers).

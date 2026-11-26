@@ -12,7 +12,7 @@ agent-arsenal/
 │   ├── system/             # Machine-level environment (~/.gemini/): GEMINI.md, MCPs, plugins, hooks, scripts
 │   ├── project/            # Workspace template (<project>/.agents/): rules, skills, GEMINI.md, verify.ps1
 │   ├── README.md           # Breakdown of active MCPs, loading precedence, hooks, and architecture
-│   └── rules-and-guardrails.md # The 16-rule universal behavioral standard
+│   └── rules-and-guardrails.md # The 12-rule universal behavioral standard + Engram
 ├── suites/                 # Specialized domain skill packs (project-scoped)
 │   ├── creative-stock/     # Blender, video director, stock asset factory, designcraft, Diffusion Studio (14 skills)
 │   └── cloudflare-supabase/# Cloudflare Agents SDK, Workers, Durable Objects, Supabase (13 skills)
@@ -33,7 +33,7 @@ agent-arsenal/
 
 See [`active-stack/README.md`](./active-stack/README.md) for full configuration details.
 
-* **Core Engine:** Google Antigravity CLI / IDE (`agy`).
+* **Core Engine:** Google Antigravity CLI / IDE (`agy`) with auto-routing (`Hydrogen` orchestrator, `flash` subagents for Playwright MCP/skills, and headless `opencode run` for offloaded coding).
 * **Agentic Framework:** `superpowers` (Brainstorming, Writing Plans, TDD, Systematic Debugging, Worktrees, Verification-before-completion, Antagonistic Code Reviews).
 * **Automated Hooks & Batch Execution:** Stop-hook verification gate (`verify.ps1`), post-edit syntax validation (`post-tool-hook.ps1`), and headless autonomous batch runner (`headless-runner.ps1`).
 * **Active MCP Tools (13 Servers):** Firecrawl, GitHub, Sentry, Figma, Photoshop, Blender, Context7, Cloudflare Docs, Whop Docs, Supabase, Playwright (CDP :9222), Fiverr, Engram.
